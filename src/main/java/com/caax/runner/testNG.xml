@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite1" verbose="1" >
+
+    <listeners>
+        <listener class-name="com.caax.utilities.testNGListner"/>
+    </listeners>
+    <test name="LoginTest" >
+        <classes>
+            <class name="com.caax.testCases.loginPageTest" />
+        </classes>
+    </test>
+
+    <test name="Bill Approve Test">
+        <classes>
+            <class name="com.caax.testCases.BillApproveTest"/>
+        </classes>
+    </test>
+</suite>
