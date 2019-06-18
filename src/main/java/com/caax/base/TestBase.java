@@ -1,8 +1,11 @@
 package com.caax.base;
 
+import com.caax.Helper.Resource.ResourceHelper;
 import com.caax.utilities.WebEventListener;
 import com.caax.utilities.utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -26,17 +29,21 @@ public class TestBase {
     public static utils util;
 
 
+    public static Logger log= LogManager.getLogger(TestBase.class);
+
+
     public TestBase()
     {
         prop=new Properties();
         FileInputStream fis= null;
         try {
-            fis = new FileInputStream(System.getProperty("user.dir")+"//src//main//resources//config.properties");
+            fis =new FileInputStream(ResourceHelper.getResourcePath("//src//main//resources//config.properties"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         try {
             prop.load(fis);
+            log.info("Config file loaded");
         } catch (IOException e) {
             e.printStackTrace();
         }

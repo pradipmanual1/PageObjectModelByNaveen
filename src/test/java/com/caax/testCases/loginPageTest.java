@@ -10,8 +10,8 @@ import org.testng.Assert;
 
 public class loginPageTest extends TestBase {
 
-    LoginPage login_P;
-    DashBoard dash_P;
+    private LoginPage login_P;
+    private DashBoard dash_P;
 
     public loginPageTest(){
         super();
@@ -22,6 +22,7 @@ public class loginPageTest extends TestBase {
 
         initialization();
         login_P=new LoginPage();
+        log.info("Setup method done");
     }
 
     @Test(priority = 1)
