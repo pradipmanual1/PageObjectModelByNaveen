@@ -1,6 +1,7 @@
 package com.caax.base;
 
 import com.caax.Helper.Resource.ResourceHelper;
+import com.caax.utilities.ExcelReader;
 import com.caax.utilities.WebEventListener;
 import com.caax.utilities.utils;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -27,7 +28,8 @@ public class TestBase {
     public static WebDriverWait wait;
     public static WebEventListener eventListener;
     public static utils util;
-
+    public ExcelReader reader;
+    String excel_path= ResourceHelper.getResourcePath("//src//main//java//com//caax//testData//data.xlsx");
 
     public static Logger log= LogManager.getLogger(TestBase.class);
 
@@ -80,6 +82,7 @@ public class TestBase {
         driver = e_driver;
 
         util=new utils();
+        reader=new ExcelReader(excel_path);
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
